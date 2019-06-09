@@ -1,2 +1,7 @@
-<h1>Questions</h1>
-<p>{{quest}}</p>
+<div *ngIf="quest && quest['Câu hỏi'] && quest['a'] && quest['b'] && quest['c'] && quest['d']">
+<h2>{{quest["Câu hỏi"]}}</h2>
+<h3>a) {{quest["a"]}}</h3>
+<h3>b) {{quest["b"]}}</h3>
+<h3>c) {{quest["c"]}}</h3>
+<h3>d) {{quest["d"]}}</h3>
+</div>

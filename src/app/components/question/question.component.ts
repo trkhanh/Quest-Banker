@@ -6,7 +6,7 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./question.component.scss']
 })
 export class QuestionComponent implements OnInit {
-  @Input() quest: object;
+  @Input() quest;
   constructor() {
     console.log('QuestionComponent !');
    }
