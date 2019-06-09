@@ -1,7 +1,8 @@
 {
   "PAGES": {
       "HOME": {
-          "TITLE": "App works !"
+          "TITLE": "Ứng dụng quản lý câu hỏi",
+          "AUTHOR": "tran_khanh@outlook.com"
       }
   }
 }

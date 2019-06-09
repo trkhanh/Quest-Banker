@@ -19,6 +19,12 @@ import { WebviewDirective } from './directives/webview.directive';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './components/home/home.component';
 
+// import filepond module
+import { FilePondModule } from 'ngx-filepond';
+
+import { CSV2JSONModule } from 'angular2-csv2json';
+import { QuestionComponent } from './components/question/question.component';
+
 // AoT requires an exported function for factories
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -28,7 +34,8 @@ export function HttpLoaderFactory(http: HttpClient) {
   declarations: [
     AppComponent,
     HomeComponent,
-    WebviewDirective
+    WebviewDirective,
+    QuestionComponent
   ],
   imports: [
     BrowserModule,
@@ -41,7 +48,9 @@ export function HttpLoaderFactory(http: HttpClient) {
         useFactory: (HttpLoaderFactory),
         deps: [HttpClient]
       }
-    })
+    }),
+    FilePondModule,
+    CSV2JSONModule
   ],
   providers: [ElectronService],
   bootstrap: [AppComponent]

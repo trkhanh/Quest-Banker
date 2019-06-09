@@ -69,7 +69,7 @@
     "karma-coverage-istanbul-reporter": "2.0.4",
     "karma-jasmine": "2.0.1",
     "karma-jasmine-html-reporter": "1.4.0",
-    "mocha": "6.1.2",
+    "mocha": "^6.1.4",
     "npm-run-all": "4.1.5",
     "rxjs": "6.5.2",
     "spectron": "5.0.0",
@@ -82,5 +82,11 @@
   },
   "engines": {
     "node": ">=10.9.0"
+  },
+  "dependencies": {
+    "angular2-csv2json": "^1.1.0",
+    "filepond": "^4.4.9",
+    "ngx-filepond": "^5.0.1",
+    "utf8": "^3.0.0"
   }
 }

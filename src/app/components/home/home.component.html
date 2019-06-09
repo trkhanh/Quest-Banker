@@ -2,4 +2,16 @@
   <h1 class="title">
     {{ 'PAGES.HOME.TITLE' | translate }}
   </h1>
+  <h4 class="title">Author: {{ 'PAGES.HOME.AUTHOR' | translate }}</h4>
+  <h4 class="title">Version: 0.0.1</h4>
+  <csv2json [btnText]="'custom text in button. '" [errorMsg]="'custom error msg'" (response)='onUpload($event)'>
+  </csv2json>
+</div>
+
+<div class="row">
+  <ul>
+    <li *ngFor="let question of data">
+      <app-question [quest]="question"></app-question>
+    </li>
+  </ul>
 </div>
