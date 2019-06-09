@@ -10,8 +10,8 @@ import _ from "lodash";
 export class HomeComponent implements OnInit {
   @ViewChild('myPond', { static: false }) myPond: any;
 
-  private _fPath = "";
-  private _content: JSON;
+   _fPath = "";
+   _content: JSON;
   constructor() { }
 
   ngOnInit() {
