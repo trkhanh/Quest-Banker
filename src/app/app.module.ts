@@ -24,7 +24,6 @@ import { FilePondModule } from 'ngx-filepond';
 
 import { CSV2JSONModule } from 'angular2-csv2json';
 import { QuestionComponent } from './components/question/question.component';
-
 // AoT requires an exported function for factories
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');

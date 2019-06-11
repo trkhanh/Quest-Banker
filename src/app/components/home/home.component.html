@@ -6,6 +6,11 @@
   <h4 class="title">稿: 0.0.1</h4>
   <csv2json [btnText]="'インポート'" [errorMsg]="'custom error msg'" (response)='onUpload($event)'>
   </csv2json>
+
+  <div class="Block">
+    <label id="lbl">Code </label>
+    <input type='file' (change)="fileChanged($event)">
+  </div>
 </div>
 
 <div class="row" *ngIf="_content && _content['l1'] && _content['l2'] && _content['l3']">
