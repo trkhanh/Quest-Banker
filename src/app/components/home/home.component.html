@@ -4,33 +4,46 @@
   </h1>
   <h4 class="title">著者: {{ 'PAGES.HOME.AUTHOR' | translate }}</h4>
   <h4 class="title">稿: 0.0.1</h4>
-  <csv2json [btnText]="'インポート'" [errorMsg]="'custom error msg'" (response)='onUpload($event)'>
-  </csv2json>
 
-  <div class="Block">
-    <label id="lbl">Code </label>
-    <input type='file' (change)="fileChanged($event)">
+  <div class="file-block">
+    <label for="tentacles" class="title">How many question do you want to get from each TYPE of questions?</label>
+    <input type="number" id="tentacles" name="tentacles" min="10" max="100" [(ngModel)]="limitOfQuestionByType">
+    <br>
+    <label id="input" class="title">'インポート'</label>
+    <input type='file' class="input-text" (change)="fileChanged($event)">
   </div>
 </div>
 
-<div class="row" *ngIf="_content && _content['l1'] && _content['l2'] && _content['l3']">
-  <!-- {{_content | json}} -->
-  <!-- <h1>{{_content['l1'] | json}}</h1> -->
-  <h3>Dạng câu hỏi loại 1</h3>
-    <div *ngFor="let question of _content['l1']; let i = index">
-      <h5>Câu {{i}}</h5>
+
+<div class="row questions" *ngIf="content && content['l1\r'] && content['l2\r'] && content['l3\r']">
+  <!-- {{content | json}} -->
+  <!-- <h1>{{content['l1'] | json}}</h1> -->
+  <h3 class="constrast">DẠNG CÂU HỎI LOẠI 1</h3>
+  <div *ngFor="let question of content['l1\r']; let i = index">
+    <h3 class="constrast">Câu {{i + 1}}</h3>
+    <app-question [quest]="question"></app-question>
+  </div>
+  <!-- <h1>{{content['l2'] |json}}</h1> -->
+  <div *ngIf="content['l2\r']">
+    <h3 class="constrast">DẠNG CÂU HỎI LOẠI 2</h3>
+    <div *ngFor="let question of content['l2\r']; let i = index">
+      <h3 class="constrast">Câu {{i + 1}}</h3>
       <app-question [quest]="question"></app-question>
     </div>
-  <!-- <h1>{{_content['l2'] |json}}</h1> -->
-  <h3>Dạng câu hỏi loại 2</h3>
-      <div *ngFor="let question of _content['l2']; let i = index">
-        <h5>Câu {{i}}</h5>
-        <app-question [quest]="question"></app-question>
-      </div>
-  <!-- <h1>{{_content['l3']|json}}</h1> -->
-  <h3>Dạng câu hỏi loại 3</h3>
-      <div *ngFor="let question of _content['l3']; let i = index">
-        <h5>Câu {{i}}</h5>
-        <app-question [quest]="question"></app-question>
-      </div>
+  </div>
+  <!-- <h1>{{content['l3']|json}}</h1> -->
+  <div *ngIf="content['l3\r']">
+    <h3 class="constrast">DẠNG CÂU HỎI LOẠI 3</h3>
+    <div *ngFor="let question of content['l3\r']; let i = index">
+      <h3 class="constrast">Câu {{i + 1}}</h3>
+      <app-question [quest]="question"></app-question>
+    </div>
+  </div>
+  <div *ngIf="content['l4\r']">
+    <h3 class="constrast">DẠNG CÂU HỎI LOẠI 4</h3>
+    <div *ngFor="let question of content['l4\r']; let i = index">
+      <h3 class="constrast">Câu {{i + 1}}</h3>
+      <app-question [quest]="question"></app-question>
+    </div>
+  </div>
 </div>

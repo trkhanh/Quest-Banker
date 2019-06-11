@@ -11,6 +11,7 @@ src/**/*.js
 !src/karma.conf.js
 *.js.map
 
+
 # dependencies
 /node_modules
 
@@ -48,3 +49,6 @@ package-lock.json
 # System Files
 .DS_Store
 Thumbs.db
+
+# release
+*.zip

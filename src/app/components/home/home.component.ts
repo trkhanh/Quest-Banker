@@ -8,35 +8,46 @@ import _ from 'lodash';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
-  @ViewChild('myPond', { static: false }) myPond: any;
-
+  
   _fPath = '';
-  _content: JSON;
+  content: any = {
+    'l1':[],
+    'l2':[]
+  }
+
+  limitOfQuestionByType:number;
+  
   file: any;
-  constructor() {}
+  constructor() { }
 
-  ngOnInit() {}
-
+  ngOnInit() { }
+  
   private decode(d): JSON {
     return JSON.parse(utf8.decode(JSON.stringify(d)));
   }
 
   groupByTypeOfQuestion(d): JSON {
-    const type = 'Dạng câu hỏi';
+    const type = 'typeQ';
     return _.groupBy(d, type);
   }
 
   mixRandomQuestionByType(d): JSON {
     const t = this;
     const data: Object = d;
-    const limitOfQuestionByType = 3;
     const result: Object = {};
 
     Object.keys(data).forEach(key => {
-      result[key] = t.getRandom(data[key], limitOfQuestionByType);
+      result[key] = t.getRandom(data[key], this.limitOfQuestionByType);
     });
 
     return JSON.parse(JSON.stringify(result));
+  }
+
+  onClick(e:Event){
+    console.log(this.file);
+    this.fileChanged(this.file);
+    console.log(e);
+    console.log('content',this.content)
   }
 
   getRandom(bucket, numbers): Array<object> {
@@ -51,7 +62,12 @@ export class HomeComponent implements OnInit {
 
   fileChanged(e) {
     this.file = e.target.files[0];
+    console.log('setFile',this.file);
     this.uploadDocument(this.file);
+  }
+
+  render(){
+
   }
 
   uploadDocument(file) {
@@ -70,8 +86,8 @@ export class HomeComponent implements OnInit {
     console.log('BEFORE randomzieQuestionResult', groupResult);
     const randomzieQuestionResult = t.mixRandomQuestionByType(groupResult);
     console.log('AFTER randomzieQuestionResult', randomzieQuestionResult);
-    t._content = randomzieQuestionResult;
-    console.log('t.content', t._content);
+    t.content = randomzieQuestionResult;
+    console.log('t.content', t.content);
   }
 
   onUpload(event: { type: string; data: any }) {
@@ -82,24 +98,67 @@ export class HomeComponent implements OnInit {
       console.log('BEFORE randomzieQuestionResult', groupResult);
       const randomzieQuestionResult = t.mixRandomQuestionByType(groupResult);
       console.log('AFTER randomzieQuestionResult', randomzieQuestionResult);
-      t._content = randomzieQuestionResult;
-      console.log('t.content', t._content);
+      t.content = randomzieQuestionResult;
+      console.log('t.content', t.content);
     } else {
       console.log(event.data); // error
     }
   }
+
+  csvJSON_l = csv => {
+    const [firstLine, ...lines] = csv.split('\n');
+    const keys = firstLine.split(',');
+    return lines.map(line => ((values) =>
+      keys.reduce(
+        (curr, next, index) => ({
+          ...curr,
+          [next]: values[index],
+        }),
+        {}
+      )
+    )(line.split(',')));
+  };
+
+  questionModel(_no, _question, _a, _b, _c, _d, _typeQ) {
+    return {
+      no: _no,
+      quest: _question,
+      a: _a,
+      b: _b,
+      c: _c,
+      d: _d,
+      typeQ: _typeQ
+    }
+  };
 
   csvJSON(csv) {
     const lines = csv.split('\n');
     const result = [];
     const headers = lines[0].split(',');
     for (let i = 1; i < lines.length; i++) {
-        const obj = {};
-        const currentline = lines[i].split(',');
-        for (let j = 0; j < headers.length; j++) {
-            obj[headers[j]] = currentline[j];
-        }
-        result.push(obj);
+      const obj = {};
+      const currentline = lines[i].split(',');
+      for (let j = 0; j < headers.length; j++) {
+        obj[headers[j]] = currentline[j];
+      }
+      let keys = Object.keys(obj);
+      if (obj[keys[0]] &&
+        obj[keys[1]] &&
+        obj[keys[2]] &&
+        obj[keys[3]] &&
+        obj[keys[4]] &&
+        obj[keys[5]] &&
+        obj[keys[8]]) {
+        result.push(this.questionModel(
+          obj[keys[0]],
+          obj[keys[1]],
+          obj[keys[2]],
+          obj[keys[3]],
+          obj[keys[4]],
+          obj[keys[5]],
+          obj[keys[8]],
+        ));
+      }
 
     }
     // return result; //JavaScript object
