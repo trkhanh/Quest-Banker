@@ -1,7 +1,11 @@
 <div *ngIf="quest">
-<h2>{{quest["quest"]}}</h2>
-<h3>a) {{quest["a"]}}</h3>
-<h3>b) {{quest["b"]}}</h3>
-<h3>c) {{quest["c"]}}</h3>
-<h3>d) {{quest["d"]}}</h3>
+    <h3>{{index}}.  {{quest["quest"]}}</h3>
+    <h3 *ngIf="quest['questionPlus\r']">{{quest['questionPlus\r']}}</h3>
+    <h3 *ngIf="quest['questionPlus']">{{quest['questionPlus']}}</h3>
+    <div class="answers">
+        <h3>a. {{quest["a"]}}</h3>
+        <h3>b. {{quest["b"]}}</h3>
+        <h3>c. {{quest["c"]}}</h3>
+        <h3>d. {{quest["d"]}}</h3>
+    </div>
 </div>

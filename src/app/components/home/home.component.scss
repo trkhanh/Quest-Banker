@@ -17,8 +17,8 @@
 }
 
 .constrast{
-  background: black;
-  color: white;
+  // background: black;
+  // color: white;
 }
 
 .file-block{
@@ -28,6 +28,18 @@
 
 .questions{
   padding: 0 30%;
+}
+
+@media screen and (max-width: 320px) {
+  .questions {
+    padding: 0;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .questions {
+    padding: 0 30%;
+  }
 }
 
 .input-text{

@@ -8,20 +8,20 @@ import _ from 'lodash';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
-  
+
   _fPath = '';
   content: any = {
-    'l1':[],
-    'l2':[]
+    'l1': [],
+    'l2': []
   }
 
-  limitOfQuestionByType:number;
-  
+  limitOfQuestionByType: number;
+
   file: any;
   constructor() { }
 
   ngOnInit() { }
-  
+
   private decode(d): JSON {
     return JSON.parse(utf8.decode(JSON.stringify(d)));
   }
@@ -43,11 +43,11 @@ export class HomeComponent implements OnInit {
     return JSON.parse(JSON.stringify(result));
   }
 
-  onClick(e:Event){
+  onClick(e: Event) {
     console.log(this.file);
     this.fileChanged(this.file);
     console.log(e);
-    console.log('content',this.content)
+    console.log('content', this.content)
   }
 
   getRandom(bucket, numbers): Array<object> {
@@ -62,11 +62,11 @@ export class HomeComponent implements OnInit {
 
   fileChanged(e) {
     this.file = e.target.files[0];
-    console.log('setFile',this.file);
+    console.log('setFile', this.file);
     this.uploadDocument(this.file);
   }
 
-  render(){
+  render() {
 
   }
 
@@ -119,10 +119,11 @@ export class HomeComponent implements OnInit {
     )(line.split(',')));
   };
 
-  questionModel(_no, _question, _a, _b, _c, _d, _typeQ) {
+  questionModel(_no, _question, _questionPlus, _a, _b, _c, _d, _typeQ) {
     return {
       no: _no,
       quest: _question,
+      questionPlus: _questionPlus,
       a: _a,
       b: _b,
       c: _c,
@@ -142,21 +143,22 @@ export class HomeComponent implements OnInit {
         obj[headers[j]] = currentline[j];
       }
       let keys = Object.keys(obj);
-      if (obj[keys[0]] &&
-        obj[keys[1]] &&
-        obj[keys[2]] &&
-        obj[keys[3]] &&
-        obj[keys[4]] &&
-        obj[keys[5]] &&
-        obj[keys[8]]) {
+      if (obj['stt'] &&
+        obj["Câu hỏi"] &&
+        obj["a"] &&
+        obj["b"] &&
+        obj["c"] &&
+        obj["d"]
+        ) {
         result.push(this.questionModel(
-          obj[keys[0]],
-          obj[keys[1]],
-          obj[keys[2]],
-          obj[keys[3]],
-          obj[keys[4]],
-          obj[keys[5]],
-          obj[keys[8]],
+          obj['stt'],
+          obj["Câu hỏi"],
+          obj["Bổ trợ câu hỏi"],
+          obj["a"],
+          obj["b"],
+          obj["c"],
+          obj["d"],
+          obj["type\r"]?obj["type\r"]:obj["type"]
         ));
       }
 

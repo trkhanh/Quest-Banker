@@ -7,6 +7,7 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class QuestionComponent implements OnInit {
   @Input() quest;
+  @Input() index;
   constructor() {
     console.log('QuestionComponent !');
    }
