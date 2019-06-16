@@ -14,7 +14,6 @@
   </div>
 </div>
 
-
 <div class="row questions" *ngIf="content && content['l1\r'] && content['l2\r'] && content['l3\r']">
   <!-- {{content | json}} -->
   <!-- <h1>{{content['l1'] | json}}</h1> -->
@@ -48,7 +47,7 @@
   </div>
 
   <div *ngIf="content['l5\r']">
-    <h3 class="constrast">問題 5:　下線のある言葉の最も適切反意語をA、B、C、Dの中から選びなさい。</h3>
+    <h3 class="constrast">問題 5: 下線のある言葉の最も適切反意語をA、B、C、Dの中から選びなさい。</h3>
     <div *ngFor="let question of content['l5\r']; let i = index">
      <!-- <h3 class="constrast">Câu i + 1</h3>-->
       <app-question [quest]="question" [index]="i + 1"></app-question>
