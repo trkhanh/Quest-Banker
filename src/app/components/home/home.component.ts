@@ -15,7 +15,7 @@ export class HomeComponent implements OnInit {
     'l2': []
   }
 
-  limitOfQuestionByType: number;
+  limitOfQuestionByType: number = 3;
 
   file: any;
   constructor() { }

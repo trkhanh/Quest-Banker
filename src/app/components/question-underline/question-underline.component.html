@@ -1,0 +1,15 @@
+<div *ngIf="quest" class="question_with_decorate">
+  <h3>{{index}}.</h3>
+  <h3  class='upper' *ngFor="let char of questionToUnderline; let i = index">
+    <u  *ngIf="char==quest['a']">{{char}} <h5 class='under'>A</h5></u>
+    <u  *ngIf="char==quest['b']">{{char}} <h5 class='under'>B</h5></u>
+    <u  *ngIf="char==quest['c']">{{char}} <h5 class='under'>C</h5></u>
+    <u  *ngIf="char==quest['d']">{{char}} <h5 class='under'>D</h5></u>
+    <span *ngIf="char!=' ' && char!='  ' && char!=quest['a'] && char!=quest['b'] && char!=quest['c'] && char!=quest['d']">
+        {{char}}
+      </span>
+    </h3>
+  <!-- <h3 *ngIf="quest['questionPlus\r']">{{quest['questionPlus\r']}}</h3>
+  <h3 *ngIf="quest['questionPlus']">{{quest['questionPlus']}}</h3> -->
+ 
+</div>

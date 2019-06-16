@@ -1,0 +1,22 @@
+.answers{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+.question_with_decorate{
+    display: flex;
+    h3:last-child{
+        padding: 0;
+    }
+};
+
+.upper{
+    display: flex;
+    flex-direction: column;
+    padding: 0 1%;
+}
+.under{
+    justify-content: center;
+    display: flex;
+    margin: 0.7em 0
+}
