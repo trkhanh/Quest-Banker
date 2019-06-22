@@ -17,55 +17,55 @@
 <div class="row questions" *ngIf="content && content['l1\r'] && content['l2\r'] && content['l3\r']">
   <!-- {{content | json}} -->
   <!-- <h1>{{content['l1'] | json}}</h1> -->
-  <h3 class="constrast">問題 1:「...........」に入る最も適切なものをA、B、C、Dの中から選びなさい。</h3>
+  <h5 class="constrast">問題 1:「...........」に入る最も適切なものをA、B、C、Dの中から選びなさい。</h5>
   <div *ngFor="let question of content['l1\r']; let i = index">
-   <!-- <h3 class="constrast">Câu i + 1</h3>-->
+   <!-- <h5 class="constrast">Câu i + 1</h5>-->
     <app-question [quest]="question" [index]="i + 1" ></app-question>
   </div>
   <!-- <h1>{{content['l2'] |json}}</h1> -->
   <div *ngIf="content['l2\r']">
-    <h3 class="constrast">問題 2: 　日本語で示した特徴を持たない語をA、B、C、Dの中から選びなさい</h3>
+    <h5 class="constrast">問題 2: 　日本語で示した特徴を持たない語をA、B、C、Dの中から選びなさい</h5>
     <div *ngFor="let question of content['l2\r']; let i = index">
-     <!-- <h3 class="constrast">Câu i + 1</h3>-->
+     <!-- <h5 class="constrast">Câu i + 1</h5>-->
       <app-question [quest]="question" [index]="i + 1"></app-question>
     </div>
   </div>
   <!-- <h1>{{content['l3']|json}}</h1> -->
   <div *ngIf="content['l3\r']">
-    <h3 class="constrast">問題 3:　（...........）に入る最も適切なものをA、B、C、Dの中から選びなさい。</h3>
+    <h5 class="constrast">問題 3:　（...........）に入る最も適切なものをA、B、C、Dの中から選びなさい。</h5>
     <div *ngFor="let question of content['l3\r']; let i = index">
-     <!-- <h3 class="constrast">Câu i + 1</h3>-->
+     <!-- <h5 class="constrast">Câu i + 1</h5>-->
       <app-question [quest]="question" [index]="i + 1"></app-question>
     </div>
   </div>
   <div *ngIf="content['l4\r']">
-    <h3 class="constrast">問題 4:　文中の誤りを探しなさい</h3>
+    <h5 class="constrast">問題 4:　文中の誤りを探しなさい</h5>
     <div *ngFor="let question of content['l4\r']; let i = index">
-     <!-- <h3 class="constrast">Câu i + 1</h3>-->
+     <!-- <h5 class="constrast">Câu i + 1</h5>-->
       <app-question-underline [quest]="question" [index]="i + 1"></app-question-underline>
     </div>
   </div>
 
   <div *ngIf="content['l5\r']">
-    <h3 class="constrast">問題 5: 下線のある言葉の最も適切反意語をA、B、C、Dの中から選びなさい。</h3>
+    <h5 class="constrast">問題 5: 下線のある言葉の最も適切反意語をA、B、C、Dの中から選びなさい。</h5>
     <div *ngFor="let question of content['l5\r']; let i = index">
-     <!-- <h3 class="constrast">Câu i + 1</h3>-->
+     <!-- <h5 class="constrast">Câu i + 1</h5>-->
       <app-question [quest]="question" [index]="i + 1"></app-question>
     </div>
   </div>
 
   <div *ngIf="content['l6\r']">
-    <h3 class="constrast">DẠNG CÂU HỎI LOẠI 6</h3>
+    <h5 class="constrast">DẠNG CÂU HỎI LOẠI 6</h5>
     <div *ngFor="let question of content['l6\r']; let i = index">
-     <!-- <h3 class="constrast">Câu i + 1</h3>-->
+     <!-- <h5 class="constrast">Câu i + 1</h5>-->
       <app-question [quest]="question" [index]="i + 1"></app-question>
     </div>
   </div>
 
   <div *ngIf="content['l7\r']">
-    <h3 class="constrast">DẠNG CÂU HỎI LOẠI 7</h3>
+    <h5 class="constrast">DẠNG CÂU HỎI LOẠI 7</h5>
     <div *ngFor="let question of content['l7\r']; let i = index">
-     <!-- <h3 class="constrast">Câu i + 1</h3>-->
+     <!-- <h5 class="constrast">Câu i + 1</h5>-->
       <app-question [quest]="question" [index]="i + 1"></app-question>
     </div>
   </div>

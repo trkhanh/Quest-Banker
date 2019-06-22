@@ -15,8 +15,14 @@
     flex-direction: column;
     padding: 0 1%;
 }
+
+.up{
+    text-decoration: underline;
+}
+
 .under{
     justify-content: center;
     display: flex;
-    margin: 0.7em 0
+    align-items: center;
+    flex-direction: column;
 }
